@@ -1512,3 +1512,112 @@ values (499, 'Andris', 'O''Cahey', 'aocaheydu@google.com.br', 'Male', '1966-08-2
 insert into people (id, first_name, last_name, email, gender, birth_day, money, height, weight, city, country, married)
 values (500, 'Burg', 'Whyatt', 'bwhyattdv@list-manage.com', 'Male', '1975-06-27', 51594556.2, 103.4, 85, 'Nong Khaem',
         'Thailand', false);
+--1
+select *
+from people;
+--2
+select country, first_name
+from people
+where first_name like 'T%'
+   or first_name like 'D%';
+--3
+select first_name, money
+from people
+order by money desc
+    limit 10;
+--4
+select city, country
+from people
+where country = 'China';
+--5
+
+select *
+from people
+where country like 'China'
+   or country like 'Brazil';
+--6
+select count(*)
+from people;
+--7
+select count(*)
+from people
+where country = 'Russia';
+--8
+select *
+from people
+where not gender = 'Male'
+  and not gender = 'Female';
+--9
+select first_name, birth_day
+from people
+order by birth_day
+    limit 1;
+--10
+select first_name, first_name, birth_day
+from people
+order by birth_day desc
+    limit 7;
+--11
+select first_name, country, weight
+from people
+where country = 'Portugal'
+order by weight desc
+    limit 5;
+--12
+select first_name, country, height
+from people
+where country = 'Argentina'
+order by height desc
+    limit 5;
+--13
+select first_name, birth_day
+from people
+order by birth_day desc
+    limit 1;
+--14
+select last_name, email
+from people
+where email like '%uk';
+--15
+select last_name, first_name, money, country
+from people
+where country = 'Sweden'
+order by money
+    limit 1;
+--16
+select first_name, last_name
+from people
+where first_name like '%s'
+   or last_name like '%s';
+--17
+select *
+from people
+order by weight desc
+    limit 1;
+--18
+select sum(money)
+from people;
+--19
+select country, count(*)
+from people
+group by country;
+--20--?
+select country
+from people
+where country = 'Brazil' notnull;
+--21
+select sum(money)
+from people
+where country = 'Kenya';
+--22
+select country, first_name, height
+from people
+where country = 'Japan'
+order by height desc
+    limit 1;
+--23
+select country, first_name, money
+from people
+order by money desc
+    limit 1;
+--24
